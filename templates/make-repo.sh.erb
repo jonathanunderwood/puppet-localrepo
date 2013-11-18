@@ -1,0 +1,8 @@
+#!/bin/bash
+<% @versions.each do |version| -%>
+<% @archs.each do |arch| -%>
+DIR=<%= @webroot %>/<%= @name %>/<%= version %>/<%= arch %>
+[ -d ${DIR} ] || mkdir -p ${DIR}
+createrepo -c ${DIR}/cache ${DIR}
+<% end %>
+<% end -%>

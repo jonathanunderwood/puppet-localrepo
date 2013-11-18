@@ -1,0 +1,9 @@
+Alias /<%= @name %> <%= @webroot %>/<%= @name %>
+<Directory "<%= @webroot %>/<%= @name %>">
+  Options Indexes FollowSymLinks MultiViews
+  AllowOverride None
+  Order allow,deny
+  Allow from All
+</Directory>
+
+
