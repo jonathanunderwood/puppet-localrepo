@@ -6,3 +6,8 @@ DIR=<%= @webroot %>/<%= @name %>/<%= version %>/<%= arch %>
 createrepo -c ${DIR}/cache ${DIR}
 <% end %>
 <% end -%>
+
+chown -R root.root <%= @webroot %>/<%= @name %>
+find <%= @webroot %>/<%= @name %> -type f -print0 | xargs -0 chmod 644
+find <%= @webroot %>/<%= @name %> -type d -print0 | xargs -0 chmod 755
+restorecon -R <%= @webroot %>/<%= @name %>
